@@ -229,14 +229,26 @@
   }
   .career-badges { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
   .badge {
+    display: inline-flex; align-items: center; gap: 6px;
     font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--accent);
     border: 1px solid var(--accent-light);
     background: var(--accent-light);
     padding: 4px 10px;
     white-space: nowrap;
+    cursor: default; user-select: none;
   }
   .badge.dark { background: var(--navy); color: #ffffff; border-color: var(--navy); }
+  @keyframes badge-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.5; }
+  }
+  .badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #22c55e;
+    animation: badge-pulse 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+  }
 
   /* ── SKILLS ── */
   .skills-section { background: var(--navy); }
@@ -305,8 +317,11 @@
   }
   .featured-pill {
     display: inline-flex; align-items: center; gap: 6px;
-    background: var(--accent-light); border: 1px solid #f9c4be;
-    padding: 5px 12px; font-size: 0.74rem; font-weight: 500; color: var(--ink);
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid var(--accent-light); background: var(--accent-light);
+    padding: 4px 10px; white-space: nowrap;
+    cursor: default; user-select: none;
   }
   .project-featured-link {
     display: inline-flex; align-items: center; gap: 8px;
@@ -527,8 +542,9 @@
         <p class="career-desc"> · Prepared Board and IC papers and presented to the IC at quarterly review meetings</p>
       </div>
       <div class="career-badges">
-        <span class="badge dark">Current</span>
-        <span class="badge">Edutainment</span>
+        <span class="badge dark"><span class="badge-dot"></span>Current</span>
+        <span class="badge">🎓 Edutainment</span>
+        <span class="badge">📍 Singapore</span>
       </div>
     </div>
 
@@ -551,9 +567,9 @@
         
       </div>
       <div class="career-badges">
-        <span class="badge">Insurtech</span>
-        <span class="badge">Singapore</span>
-        <span class="badge">Indonesia</span>
+        <span class="badge">🛡️ Insurtech</span>
+        <span class="badge">📍 Singapore</span>
+        <span class="badge">📍 Indonesia</span>
       </div>
     </div>
 
@@ -573,8 +589,8 @@
         <p class="career-desc"> · Enhanced user engagement by integrating curated financial news, building internal tooling and improving app performance</p>
       </div>
       <div class="career-badges">
-        <span class="badge">Fintech</span>
-        <span class="badge">Singapore</span>
+        <span class="badge">💳 Fintech</span>
+        <span class="badge">📍 Singapore</span>
       </div>
     </div>
 
@@ -582,21 +598,22 @@
       <div class="career-date">Nov 2018 — Sep 2021</div>
       <div>
         <div class="career-company">MoneySmart</div>
-        <div class="career-role">Lead & Senior Product Manager</div>
+        <div class="career-role">Lead Product Manager</div>
+        <div class="career-role">Senior Product Manager</div>
         <div class="career-tagline">Compare and apply for personal finance products in Singapore and Hong Kong.</div>
         <div class="career-metrics">
           <span class="metric-pill"><strong>27%</strong> Conversion Uplift</span>
           <span class="metric-pill"><strong>11%</strong> Fewer Complaints</span>
-          <span class="metric-pill">0→1 <strong>Bubblegum</strong></span>
+          <span class="metric-pill"><strong>0→1</strong> Bubblegum</span>
         </div>
         <p class="career-desc"> · Improved platform conversion through UX optimisation and experimentation, achieving up to 27% uplift across key journeys</p>
         <p class="career-desc"> · Led 0→1 development of a new insurance product (Bubblegum), from discovery to launch, collaborating across product, engineering, marketing, and business teams</p>
         <p class="career-desc"> · Reduced customer complaints by 11% through redesign of promotional flows and clearer user experience</p>
       </div>
       <div class="career-badges">
-        <span class="badge">Fintech</span>
-        <span class="badge">Insurtech</span>
-        <span class="badge">Singapore</span>
+        <span class="badge">💳 Fintech</span>
+        <span class="badge">🛡️ Insurtech</span>
+        <span class="badge">📍 Singapore</span>
       </div>
     </div>
 
@@ -616,8 +633,8 @@
         <p class="career-desc"> · Analysed the cart and checkout process and implemented findings to reduce the drop off rate by 37%</p>
       </div>
       <div class="career-badges">
-        <span class="badge">eCommerce</span>
-        <span class="badge">Australia</span>
+        <span class="badge">🛒 eCommerce</span>
+        <span class="badge">📍 Australia</span>
       </div>
     </div>
 
@@ -635,8 +652,8 @@
         <p class="career-desc"> · Delivered electronic discovery for large scale litigation involving consultation with internal clients, outsourcing bureaus both internationally and nationally in accordance with court approved protocols</p>
       </div>
       <div class="career-badges">
-        <span class="badge">LegalTech</span>
-        <span class="badge">Australia</span>
+        <span class="badge">⚖️ LegalTech</span>
+        <span class="badge">📍 Australia</span>
       </div>
     </div>
 
@@ -655,19 +672,19 @@
         <p class="career-desc"> · Developed, tracked and reported on the status of concurrent projects to internal stakeholders and external clients</p>
       </div>
       <div class="career-badges">
-        <span class="badge">eDiscovery</span>
-        <span class="badge">Australia</span>
+        <span class="badge">🔍 eDiscovery</span>
+        <span class="badge">📍 Australia</span>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- SIDE PROJECTS -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-header">
     <span class="section-number">02</span>
-    <h2 class="section-title">Side Projects</h2>
+    <h2 class="section-title">Projects</h2>
     <div class="section-line"></div>
   </div>
   <p class="projects-intro">I build things on the side — mostly to scratch an itch, learn something new, or just have fun. Here's what I've shipped.</p>
