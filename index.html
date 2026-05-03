@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WCTGZP8T');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sanjiv Shah — Product Leader</title>
@@ -95,6 +102,33 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
+
+  /* Nav dropdown */
+  .nav-links li { position: relative; }
+  .nav-dropdown {
+    position: absolute; top: calc(100% + 16px); left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.98);
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--accent);
+    min-width: 210px;
+    list-style: none;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.18s, visibility 0.18s;
+    z-index: 200;
+    backdrop-filter: blur(12px);
+  }
+  .nav-links li:hover .nav-dropdown { opacity: 1; visibility: visible; }
+  .nav-dropdown a {
+    display: block; padding: 11px 16px;
+    font-size: 0.78rem; font-weight: 400;
+    letter-spacing: 0.03em; text-transform: none;
+    color: var(--ink-muted); text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-dropdown li:last-child a { border-bottom: none; }
+  .nav-dropdown a:hover { color: var(--accent); background: var(--accent-light); }
 
   /* ── HERO ── */
   .hero {
@@ -463,6 +497,9 @@
   }
   [data-theme="dark"] nav { background: rgba(10, 21, 37, 0.97); border-bottom-color: #1e3355; }
   [data-theme="dark"] .nav-logo { color: var(--accent); }
+  [data-theme="dark"] .nav-dropdown { background: rgba(10, 21, 37, 0.98); border-color: #1e3355; }
+  [data-theme="dark"] .nav-dropdown a { color: #9ab; border-bottom-color: #1e3355; }
+  [data-theme="dark"] .nav-dropdown a:hover { color: var(--accent); background: #0d1f36; }
   [data-theme="dark"] .btn-primary { background: var(--accent); color: #0d1f36; }
   [data-theme="dark"] .btn-primary:hover { background: #cdd7d6; color: #0d1f36; }
   [data-theme="dark"] .project-featured-link { background: var(--accent); color: #0d1f36; }
@@ -508,13 +545,23 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCTGZP8T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Sanjiv Shah</a>
   <ul class="nav-links">
     <li><a href="#career">Career</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li>
+      <a href="#projects">Projects</a>
+      <ul class="nav-dropdown">
+        <li><a href="#project-football">Fantasy Football Awards</a></li>
+        <li><a href="#project-trivia">Family Trivia Night</a></li>
+      </ul>
+    </li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -732,7 +779,7 @@
   <p class="projects-intro">I build things on the side — mostly to scratch an itch, learn something new, or just have fun. Here's what I've shipped.</p>
 
   <!-- ★ Featured: Fantasy Football Awards -->
-  <div class="project-featured">
+  <div class="project-featured" id="project-football">
     <div class="project-featured-content">
       <span class="project-featured-tag">My first Claude Code project</span>
       <h3 class="project-featured-title">Fantasy Football Awards Generator</h3>
@@ -747,7 +794,7 @@
   </div>
 
   <!-- Family Trivia Night -->
-  <div class="project-featured">
+  <div class="project-featured" id="project-trivia">
     <div class="project-featured-content">
       <span class="project-featured-tag">My second Claude Code project</span>
       <h3 class="project-featured-title">Family Trivia Night</h3>
