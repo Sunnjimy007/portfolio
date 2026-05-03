@@ -297,13 +297,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 0.88rem; color: #5a5048;
     line-height: 1.7;
   }
-  .career-linkedin-embed {
-    margin-top: 24px;
-    max-width: 504px;
-  }
-  .career-linkedin-embed iframe {
-    width: 100%; max-width: 504px;
+  .career-linkedin-card {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-top: 24px; max-width: 440px;
+    padding: 16px 20px;
     border: 1px solid var(--rule);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .career-linkedin-card:hover { border-color: #0a66c2; background: #f0f6ff; }
+  .career-linkedin-icon { width: 28px; height: 28px; color: #0a66c2; flex-shrink: 0; margin-top: 2px; }
+  .career-linkedin-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #0a66c2; margin-bottom: 4px;
+  }
+  .career-linkedin-title {
+    font-size: 0.88rem; color: var(--ink); line-height: 1.5; margin-bottom: 8px;
+  }
+  .career-linkedin-cta {
+    font-size: 0.75rem; font-weight: 500; color: #0a66c2; letter-spacing: 0.04em;
   }
   .career-badges { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
   .badge {
@@ -661,9 +673,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="career-desc"> · Improved end-to-end customer journey through data-led experimentation, increasing conversion rates by 8x</p>
         <p class="career-desc"> · Drove growth strategy and acquisition optimisation, significantly reducing CAC by 30% while achieving sustained QoQ user growth, up to 45%</p>
         <p class="career-desc"> · Led and mentored a team of product managers and designers, establishing product processes and delivery standards</p>
-        <div class="career-linkedin-embed">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7255088327169560577?collapsed=1" height="562" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-        </div>
+        <a class="career-linkedin-card" href="https://www.linkedin.com/posts/sanjivshah7_super-proud-to-announce-the-successful-launch-share-7255232747730788352-CfPd" target="_blank" rel="noopener">
+          <svg class="career-linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <div>
+            <div class="career-linkedin-label">Featured Post</div>
+            <div class="career-linkedin-title">Super proud to announce the successful launch…</div>
+            <div class="career-linkedin-cta">View on LinkedIn →</div>
+          </div>
+        </a>
       </div>
       <div class="career-badges">
         <span class="badge">🛡️ Insurtech</span>
