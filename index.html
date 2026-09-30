@@ -348,6 +348,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
     color: var(--ink-muted); padding-top: 4px;
   }
+  .career-side { display: flex; flex-direction: column; gap: 24px; }
+  .career-logo {
+    width: 168px; height: 104px; padding: 20px;
+    display: flex; align-items: center; justify-content: center;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    backface-visibility: hidden;
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s, opacity 0.3s ease 0.2s;
+  }
+  .career-item.reveal:not(.in-view) .career-logo {
+    transform: perspective(700px) rotateY(-180deg); opacity: 0;
+  }
+  .career-item.in-view .career-logo { transform: perspective(700px) rotateY(0deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .career-logo { transition: none; }
+  }
+  .career-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
   .career-company {
     font-family: var(--serif); font-size: 1.5rem;
     color: var(--ink); margin-bottom: 4px;
@@ -620,6 +638,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   [data-theme="dark"] .skill-card:hover { background: #1e3355; }
   [data-theme="dark"] .skill-desc { color: #7a9898; }
   [data-theme="dark"] .career-desc { color: #9a9088; }
+  [data-theme="dark"] .featured-pill,
+  [data-theme="dark"] .badge { background: #ffffff; border-color: #ffffff; color: #102542; }
+  [data-theme="dark"] .career-logo { background: #eef2f2; border-color: transparent; }
   [data-theme="dark"] .project-featured:hover { background: #162840; }
   [data-theme="dark"] .contact-section { background: #0a1525; }
   [data-theme="dark"] .contact-connect-sub { color: #7a8a9a; }
@@ -638,6 +659,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-stat:nth-child(3) { border-right: 1px solid var(--rule); }
     section { padding: 64px 24px; }
     .career-item { grid-template-columns: 1fr; gap: 16px; }
+    .career-side { flex-direction: row-reverse; justify-content: flex-end; align-items: center; gap: 14px; }
+    .career-date { padding-top: 0; }
+    .career-logo { width: 76px; height: 48px; padding: 8px; border-radius: 8px; }
     .career-badges { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -726,7 +750,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="career-grid">
 
     <div class="career-item">
-      <div class="career-date">Jun 2025 — Present</div>
+      <div class="career-side">
+        <div class="career-date">Jun 2025 — Present</div>
+        <div class="career-logo"><img src="assets/logos/mandaix.png" alt="MandaiX logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">MandaiX</div>
         <div class="career-role">Senior Lead, Product – Edutainment</div>
@@ -751,7 +778,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Oct 2022 — Jun 2025</div>
+      <div class="career-side">
+        <div class="career-date">Oct 2022 — Jun 2025</div>
+        <div class="career-logo"><img src="assets/logos/igloo.svg" alt="Igloo Insurance logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">Igloo Insurance</div>
         <div class="career-role">Head of Product – B2C · Axinan</div>
@@ -775,7 +805,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Sep 2021 — Oct 2022</div>
+      <div class="career-side">
+        <div class="career-date">Sep 2021 — Oct 2022</div>
+        <div class="career-logo"><img src="assets/logos/gotrade-icon.png" alt="Gotrade logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">Gotrade</div>
         <div class="career-role">Lead Product Manager</div>
@@ -796,7 +829,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Nov 2018 — Sep 2021</div>
+      <div class="career-side">
+        <div class="career-date">Nov 2018 — Sep 2021</div>
+        <div class="career-logo"><img src="assets/logos/moneysmart.svg" alt="MoneySmart logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">MoneySmart</div>
         <div class="career-role">Lead Product Manager</div>
@@ -819,7 +855,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Jan 2015 — Apr 2018</div>
+      <div class="career-side">
+        <div class="career-date">Jan 2015 — Apr 2018</div>
+        <div class="career-logo"><img src="assets/logos/qantas.svg" alt="Qantas Frequent Flyer logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">Qantas Loyalty</div>
         <div class="career-role">Product Manager</div>
@@ -840,7 +879,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Sep 2010 — Dec 2014</div>
+      <div class="career-side">
+        <div class="career-date">Sep 2010 — Dec 2014</div>
+        <div class="career-logo"><img src="assets/logos/kwm.png" alt="King &amp; Wood Mallesons logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">King & Wood Mallesons</div>
         <div class="career-role">Product Information Analyst</div>
@@ -859,7 +901,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Aug 2008 — Sep 2010</div>
+      <div class="career-side">
+        <div class="career-date">Aug 2008 — Sep 2010</div>
+        <div class="career-logo"><img src="assets/logos/lawinorder.png" alt="Law In Order logo" loading="lazy"></div>
+      </div>
       <div>
         <div class="career-company">Law in Order</div>
         <div class="career-role">eDiscovery Project Coordinator</div>
@@ -879,7 +924,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="career-item">
-      <div class="career-date">Aug 2006 — Aug 2008</div>
+      <div class="career-side">
+        <div class="career-date">Aug 2006 — Aug 2008</div>      </div>
       <div>
         <div class="career-company">Administrative Appeals Tribunal</div>
         <div class="career-role">Associate to Senior Member Bell</div>
@@ -923,7 +969,7 @@ Here’s a look at the side projects, MVPs, AI apps, and web experiments I’ve 
         <span class="featured-pill">🤖 AI-generated awards</span>
         <span class="featured-pill">🏆 Live &amp; Shipped</span>
       </div>
-      <a href="https://fantasyfootballawards.vercel.app/" target="_blank" class="project-featured-link">Launch App →</a>
+      <a href="https://fantasyfootballawards.vercel.app/" target="_blank" class="project-featured-link">Launch App</a>
     </div>
   </div>
 
@@ -939,7 +985,7 @@ Here’s a look at the side projects, MVPs, AI apps, and web experiments I’ve 
         <span class="featured-pill">🎮 Family Gaming</span>
         <span class="featured-pill">🏆 Live &amp; Shipped</span>
       </div>
-      <a href="https://trivia.sanjiv-shah.com" target="_blank" class="project-featured-link">Launch App →</a>
+      <a href="https://trivia.sanjiv-shah.com" target="_blank" class="project-featured-link">Launch App</a>
     </div>
   </div>
 
@@ -957,7 +1003,7 @@ Here’s a look at the side projects, MVPs, AI apps, and web experiments I’ve 
         <span class="featured-pill">🌏 SEA Expansion Coming</span>
         <span class="featured-pill">🏆 Live &amp; Shipped</span>
       </div>
-      <a href="https://racefinder.sanjiv-shah.com" target="_blank" class="project-featured-link">Launch App →</a>
+      <a href="https://racefinder.sanjiv-shah.com" target="_blank" class="project-featured-link">Launch App</a>
     </div>
   </div>
 
@@ -975,7 +1021,7 @@ Here’s a look at the side projects, MVPs, AI apps, and web experiments I’ve 
         <span class="featured-pill">🧪 Paper Trading (Alpaca)</span>
         <span class="featured-pill">🏆 Live &amp; Shipped</span>
       </div>
-      <a href="https://insideriq.sanjiv-shah.com" target="_blank" class="project-featured-link">Launch App →</a>
+      <a href="https://insideriq.sanjiv-shah.com" target="_blank" class="project-featured-link">Launch App</a>
     </div>
   </div>
 
@@ -1066,11 +1112,13 @@ const observer = new IntersectionObserver((entries) => {
     if (e.isIntersecting) {
       e.target.style.opacity = '1';
       e.target.style.transform = 'translateY(0)';
+      e.target.classList.add('in-view');
     }
   });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.career-item').forEach(el => {
+  el.classList.add('reveal');
   el.style.opacity = '0';
   el.style.transform = 'translateY(16px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
