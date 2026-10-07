@@ -121,30 +121,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {
         "@type": "ListItem",
         "position": 1,
+        "name": "InsiderIQ",
+        "url": "https://insideriq.sanjiv-shah.com",
+        "description": "A politician and corporate insider trade intelligence dashboard that scores disclosures by conviction strength."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
         "name": "Fantasy Football Awards Generator",
         "url": "https://fantasyfootballawards.vercel.app/",
         "description": "Generate personalised, AI-powered award certificates for fantasy football league players."
       },
       {
         "@type": "ListItem",
-        "position": 2,
+        "position": 3,
         "name": "Family Trivia Night",
         "url": "https://trivia.sanjiv-shah.com",
         "description": "An in-person family trivia game app that keeps players engaged and captures scores accurately."
       },
       {
         "@type": "ListItem",
-        "position": 3,
+        "position": 4,
         "name": "Racefinder",
         "url": "https://racefinder.sanjiv-shah.com",
         "description": "Discover and register for running events across South East Asia in one place."
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "InsiderIQ",
-        "url": "https://insideriq.sanjiv-shah.com",
-        "description": "A politician and corporate insider trade intelligence dashboard that scores disclosures by conviction strength."
       }
     ]
   }
@@ -495,31 +495,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 300;
   }
 
-  /* Featured project card */
+  /* Project cards */
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
   .project-featured {
     border: 1px solid var(--rule);
-    margin-bottom: 1px;
+    border-radius: 12px;
     background: var(--paper);
     transition: background 0.3s;
     animation: fadeUp 0.5s ease both;
   }
   .project-featured:hover { background: #fafafa; }
   .project-featured-content {
-    padding: 52px 56px;
+    height: 100%;
+    padding: 40px;
     display: flex; flex-direction: column; gap: 20px;
   }
   .project-featured-tag {
     font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--accent);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .project-featured-tag::before {
-    content: ''; width: 24px; height: 2px;
-    background: var(--accent); display: inline-block;
   }
   .project-featured-title {
-    font-family: var(--serif);
-    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(1.5rem, 2vw, 1.9rem);
     color: var(--ink); line-height: 1.15;
   }
   .project-featured-story {
@@ -550,13 +549,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding: 14px 24px; font-size: 0.8rem; font-weight: 500;
     letter-spacing: 0.06em; text-transform: uppercase;
     text-decoration: none; width: fit-content;
-    transition: background 0.2s; margin-top: 4px;
+    transition: background 0.2s; margin-top: auto;
     border-radius: 6px;
   }
   .project-featured-link:hover { background: var(--accent); color: var(--ink); }
 
   @media (max-width: 900px) {
-    .project-featured-content { padding: 36px 24px; }
+    .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+    .project-featured-content { padding: 32px 24px; }
   }
 
   /* ── CONTACT ── */
@@ -711,10 +711,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li>
       <a href="#projects">Projects</a>
       <ul class="nav-dropdown">
+        <li><a href="#project-insideriq">InsiderIQ</a></li>
         <li><a href="#project-football">Fantasy Football Awards</a></li>
         <li><a href="#project-trivia">Family Trivia Night</a></li>
         <li><a href="#project-racefinder">Racefinder</a></li>
-        <li><a href="#project-insideriq">InsiderIQ</a></li>
       </ul>
     </li>
     <li><a href="#skills">Skills</a></li>
@@ -1026,6 +1026,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 Here’s a look at the side projects, MVPs, AI apps, and web experiments I’ve launched along the way.</p>
 
+  <div class="projects-grid">
+
+  <!-- InsiderIQ -->
+  <div class="project-featured" id="project-insideriq">
+    <div class="project-featured-content">
+      <span class="project-featured-tag">Fintech · Trade Intelligence · Claude Code</span>
+      <h3 class="project-featured-title">InsiderIQ — Politician &amp; Insider Trade Intelligence Dashboard</h3>
+      <p class="project-featured-story">US politicians and corporate insiders are required to disclose their stock trades — but that data is scattered across government and third-party sites, and not every disclosure is equal. I built InsiderIQ to aggregate congressional trading disclosures and SEC insider filings into one dashboard, score every trade across seven weighted dimensions (recency, filing speed, trade size, cluster buying, committee relevance, and more), and surface the highest-conviction signals for one-click paper trading via Alpaca.</p>
+      <p class="project-problem-statement">How might we turn scattered, delayed disclosure data into a ranked, actionable signal — separating a junior congressperson's routine $1,500 ETF buy from a senator's $500,000 stock purchase right before their committee votes on it?</p>
+      <div class="project-featured-pills">
+        <span class="featured-pill">🎯 Claude Code</span>
+        <span class="featured-pill">📊 Scoring Engine</span>
+        <span class="featured-pill">🏛 Congress &amp; Insider Filings</span>
+        <span class="featured-pill">🧪 Paper Trading (Alpaca)</span>
+        <span class="featured-pill">🏆 Live &amp; Shipped</span>
+      </div>
+      <a href="https://insideriq.sanjiv-shah.com" target="_blank" rel="noopener" class="project-featured-link">Launch App</a>
+    </div>
+  </div>
+
   <!-- ★ Featured: Fantasy Football Awards -->
   <div class="project-featured" id="project-football">
     <div class="project-featured-content">
@@ -1075,22 +1095,6 @@ Here’s a look at the side projects, MVPs, AI apps, and web experiments I’ve 
     </div>
   </div>
 
-  <!-- InsiderIQ -->
-  <div class="project-featured" id="project-insideriq">
-    <div class="project-featured-content">
-      <span class="project-featured-tag">Fintech · Trade Intelligence · Claude Code</span>
-      <h3 class="project-featured-title">InsiderIQ — Politician &amp; Insider Trade Intelligence Dashboard</h3>
-      <p class="project-featured-story">US politicians and corporate insiders are required to disclose their stock trades — but that data is scattered across government and third-party sites, and not every disclosure is equal. I built InsiderIQ to aggregate congressional trading disclosures and SEC insider filings into one dashboard, score every trade across seven weighted dimensions (recency, filing speed, trade size, cluster buying, committee relevance, and more), and surface the highest-conviction signals for one-click paper trading via Alpaca.</p>
-      <p class="project-problem-statement">How might we turn scattered, delayed disclosure data into a ranked, actionable signal — separating a junior congressperson's routine $1,500 ETF buy from a senator's $500,000 stock purchase right before their committee votes on it?</p>
-      <div class="project-featured-pills">
-        <span class="featured-pill">🎯 Claude Code</span>
-        <span class="featured-pill">📊 Scoring Engine</span>
-        <span class="featured-pill">🏛 Congress &amp; Insider Filings</span>
-        <span class="featured-pill">🧪 Paper Trading (Alpaca)</span>
-        <span class="featured-pill">🏆 Live &amp; Shipped</span>
-      </div>
-      <a href="https://insideriq.sanjiv-shah.com" target="_blank" rel="noopener" class="project-featured-link">Launch App</a>
-    </div>
   </div>
 
   <!-- More projects coming soon -->
